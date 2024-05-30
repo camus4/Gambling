@@ -1,53 +1,50 @@
-
 import sys
 import time
 import random
 
 def for_loop():
-    end_orakel = random.randint(0, 10)
-    for i in range(end_orakel):
+    end_oracle = random.randint(0, 10)
+    for i in range(end_oracle):
         time.sleep(0.35)
         print(i)
+
 def first_round():
 
     def ask_nextRound():
-
-        print(f"dein guthaben: {guthaben} ")
-        einsatz_2 = int(input("neuer einsatz: "))
+        print(f"your balance: {balance}")
+        bet_2 = int(input("new bet: "))
 
         for_loop()
-        if einsatz_2 < end_orakel:
-            print(f"gewonnen! dein guthaben: {guthaben * einsatz_2}")
+        if bet_2 < end_oracle:
+            print(f"won! your balance: {balance * bet_2}")
 
-        if einsatz_2 >= end_orakel:
-            neues_guthaben = guthaben -einsatz_2
-            print(f"verloren! dein guthaben: {neues_guthaben}")
-            print(f"NEUES GUTHABEN: {guthaben - einsatz_2}")
+        if bet_2 >= end_oracle:
+            new_balance = balance - bet_2
+            print(f"lost! your balance: {new_balance}")
+            print(f"NEW BALANCE: {balance - bet_2}")
 
-    guthaben = int(input("guthaben: "))
-    einsatz = int(input("einatz: "))
+    balance = int(input("balance: "))
+    bet = int(input("bet: "))
 
-    end_orakel = random.randint(0, 10)
-    for i in range(end_orakel):
+    end_oracle = random.randint(0, 10)
+    for i in range(end_oracle):
         time.sleep(0.35)
         print(i)
 
-    if einsatz < end_orakel:
-        print(f"gewonnen! guthaben: {guthaben * einsatz}")
-        guthaben = guthaben * einsatz
-        ask = input("willst du die nächste runde spielen? j für ja und n für nein: ")
-        if ask.lower() == "j":
-
-            print("Nächste runde...")
+    if bet < end_oracle:
+        print(f"won! balance: {balance * bet}")
+        balance = balance * bet
+        ask = input("do you want to play the next round? y for yes and n for no: ")
+        if ask.lower() == "y":
+            print("Next round...")
             ask_nextRound()
 
-    elif einsatz >= 0:
-        print(f"verloren! guthaben: {guthaben - einsatz}")
-        guthaben = guthaben - einsatz
-        if guthaben <= 0:
-            print("tschau! ")
+    elif bet >= 0:
+        print(f"lost! balance: {balance - bet}")
+        balance = balance - bet
+        if balance <= 0:
+            print("goodbye! ")
             sys.exit()
 
 first_round()
-
 
